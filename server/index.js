@@ -38,7 +38,7 @@ app.get('/gg', (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-mongoose.connect("mongodb://localhost:27017/mern", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://batchumanish:I3vXgRUWUcWIx5rG@merncluster.ujuzf.mongodb.net/mern_db", { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB');
     app.listen(PORT, () => {
