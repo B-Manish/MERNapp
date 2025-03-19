@@ -13,11 +13,19 @@ interface UsersData {
 }
 
 const initialState: UsersData = {
-  users: [],
+  users: [
+    {
+      id: "id",
+      name: "Manish",
+      description: "desc",
+      date: "19/3/25",
+      location: "Chennai",
+    },
+  ],
 };
 
 const dataSlice = createSlice({
-  name: "items",
+  name: "data",
   initialState,
   reducers: {
     addUserData: (state, action: PayloadAction<UserData>) => {
@@ -25,7 +33,7 @@ const dataSlice = createSlice({
     },
     editUserData: (state, action: PayloadAction<UserData>) => {
       const index = state.users.findIndex(
-        (user) => (user.id = action.payload.id)
+        (user) => user.id == action.payload.id
       );
       if (index !== -1) {
         state.users[index] = action.payload;
@@ -34,7 +42,6 @@ const dataSlice = createSlice({
   },
 });
 
-
-export const {addUserData,editUserData}=dataSlice.actions;
+export const { addUserData, editUserData } = dataSlice.actions;
 
 export default dataSlice.reducer;
